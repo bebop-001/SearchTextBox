@@ -9,7 +9,25 @@
 
 	<include android:id="@+id/first_searchbox"
 		layout="@layout/searchbox" />
+
+	<EditText
+		android:id="@+id/first_edittext"
+		android:hint="first searchbox output"
+		android:layout_width="300dp"
+		android:layout_height="wrap_content"
+		android:focusable="false"
+		android:ems="10" >
+	</EditText>
+
 	<include android:id="@+id/second_searchbox"
 		layout="@layout/searchbox" />
+
+	<EditText
+		android:id="@+id/second_edittext"
+		android:hint="second searchbox output"
+		android:layout_width="300dp"
+		android:focusable="false"
+		android:layout_height="wrap_content"
+		android:ems="10" />
 		
 </LinearLayout>

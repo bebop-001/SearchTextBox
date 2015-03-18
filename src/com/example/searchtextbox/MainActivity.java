@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.searchtextbox.SearchTextBox.OnSearchReady;
@@ -77,26 +78,28 @@ public class MainActivity extends Activity implements OnNavigationListener {
 			= new SearchTextBox(this, R.id.first_searchbox)
 				.setHint("first search")
 				.setMinWidth(150)
-				.setTag("first search tag")
+				.setTag((View)findViewById(R.id.first_edittext))
 				.setOnSearchReadyListener(new OnSearchReady() {
 					@Override
 					public void searchDone(TextView v) {
+						EditText et = (EditText)v.getTag();
+						et.setText((String)v.getText().toString());
 						Log.i(logTag, "first searchDone:" + v.getText());
 					}
 				});
-		Log.i(logTag, "sb1 tag:" + sb1.getTag());
 		SearchTextBox sb2 
 			= new SearchTextBox(this, R.id.second_searchbox)
 				.setHint("second search")
 				.setMinWidth(250)
+				.setTag((View)findViewById(R.id.second_edittext))
 				.setOnSearchReadyListener(new OnSearchReady() {
 					@Override
 					public void searchDone(TextView v) {
+						EditText et = (EditText)v.getTag();
+						et.setText((String)v.getText().toString());
 						Log.i(logTag, "second searchDone:" + v.getText());
 					}
 				});
-		Log.i(logTag, "sb2 tag:" + sb2.getTag());
-
 	}
 	@Override
 	public boolean onNavigationItemSelected(int itemPosition, long itemId) {
